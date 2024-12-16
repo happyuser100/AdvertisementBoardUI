@@ -1,0 +1,20 @@
+.bg {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    min-width: 100%;
+    min-height: 100%;
+  }
+
+  .bgr {
+    background-image: url("src/assets/header.png");
+  
+    margin: auto 10px;
+    width: auto;
+    height: 175px;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }  

@@ -1,4 +1,36 @@
 <div class="container-fluid">
     <!-- <img class="bg" src="assets/images/header.PNG"> -->
-     <div class="bgr"></div>
+    <div class="bgr"></div>
+
+    <div style="text-align: center">
+        <div class="flex-items">
+            <div *ngFor="let item of items">
+                <div class="flex-item">
+                    <hr class="timelineRed" />
+                    <div class="container">
+                        <div class="containerItem">{{ item.adProperty }}</div>
+                        <div class="containerItem">around {{ item.place }}</div>
+                    </div> 
+
+                    <h3 class="row text-center">{{ item.title }}</h3>
+                    <img  *ngIf="item.imageURL" class="img" src='assets/images/{{item.imageURL}}' />
+
+                    <div class="descriptionItem">
+                        {{ item.description }}
+                    </div>
+
+                    <div class="lowContainer">
+                        <div *ngIf="item.iconUrl" class="iconLow">
+                            <img src='assets/images/{{item.iconUrl}}' />
+                        </div>
+                        <div>
+                            <div *ngIf="item.personName">{{item.personName}}</div>
+                            <div>{{item.postDate | date: 'dd/MM/yyyy HH:mm'}}</div>
+                            <div>Link {{item.commentsNumber}} comments</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

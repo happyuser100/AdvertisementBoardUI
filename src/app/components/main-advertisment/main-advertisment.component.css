@@ -1,20 +1,76 @@
 .bg {
-    position: fixed; 
-    top: 0; 
-    left: 0; 
+    position: fixed;
+    top: 0;
+    left: 0;
     min-width: 100%;
     min-height: 100%;
-  }
+}
 
-  .bgr {
+.bgr {
     background-image: url("src/assets/header.png");
-  
+
     margin: auto 10px;
     width: auto;
     height: 175px;
-  
+
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-  }  
+}
+
+.flex-items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.flex-item {
+    padding: 5px;
+    width: 300px;
+    height: 236px;
+    margin: 5px;
+}
+
+.timelineRed {
+    display: inline-block;
+    margin: auto;
+    width: 300px;
+    border: 2px solid red;
+}
+
+.timelineBlue {
+    display: inline-block;
+    margin: auto;
+    width: 300px;
+    border: 2px solid blue;
+}
+
+.img {
+    width: 150px;
+    height: 160px;
+}
+
+.container {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between;
+}
+
+.containerItem {
+    width: 150px;
+}
+
+.descriptionItem {
+    height: 100px;
+    white-space: pre-wrap;
+}
+
+.lowContainer
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+

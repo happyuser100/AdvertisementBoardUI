@@ -21,7 +21,28 @@ export class AdvertisementBoardService {
   }
 
   getByPlace(place: string) {
-    return this.httpClient.get<AdvertisementItem[]>(`${this.baseURL}/CityEvent/getByPlace/${place}`)
+    return this.httpClient.get<AdvertisementItem[]>(`${this.baseURL}/advertisementBoard/getByPlace/${place}`)
+      .pipe(
+        catchError(this.commonService.handleError)
+      );
+  }
+
+  create(model: AdvertisementItem) {
+    return this.httpClient.post(`${this.baseURL}/advertisementBoard`, model)
+      .pipe(
+        catchError(this.commonService.handleError)
+      );
+  }
+
+  update(id: string, model: AdvertisementItem) {
+    return this.httpClient.put(`${this.baseURL}/advertisementBoard/update/${id}`, model)
+      .pipe(
+        catchError(this.commonService.handleError)
+      );
+  }
+
+  delete(id: string) {
+    return this.httpClient.delete(`${this.baseURL}/advertisementBoard/delete/${id}`)
       .pipe(
         catchError(this.commonService.handleError)
       );

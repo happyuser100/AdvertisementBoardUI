@@ -23,15 +23,31 @@
     display: flex;
     flex-direction: row;
     height: 100px;
+    width: 1000px;
 }
 
 .txtbox {
-    width: 600px;
+    width: 500px;
     height: 45px;
     border: 2px solid #C1C1C1;
     border-radius: 3px;
     opacity: 1;
 }
+
+.selectBox {
+    height: 65px;
+    border-radius: 3px;
+    opacity: 1;
+}
+
+.dropDown {
+    height: 40px;
+}
+
+.mySelectClass {
+    padding-top: 10px;
+}
+
 
 .searchButton {
     width: 92px;
@@ -119,11 +135,25 @@
     padding-top: 5px;
 }
 
-.writeComments
-{
+.writeComments {
     padding-top: 5px;
 }
 
 .pointer {
     cursor: pointer;
 }
+
+.panelClass {
+    margin-top: 30px !important;
+}
+
+/*
+.mat-select-panel-wrap{
+    position: relative;
+    top: 26px;
+}
+
+.mat-select-panel-wrap .mat-select-panel{
+    min-width: calc(100% + 12px) !important;
+    transform: translateX(4px) !important
+} */

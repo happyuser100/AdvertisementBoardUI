@@ -27,6 +27,13 @@ export class AdvertisementBoardService {
       );
   }
 
+  getByPropAndPlace(place: string, prop: string){
+    return this.httpClient.get<AdvertisementItem[]>(`${this.baseURL}/advertisementBoard/getByPropAndPlace/${place}/${prop}`)
+      .pipe(
+        catchError(this.commonService.handleError)
+      );
+  }
+
   create(model: AdvertisementItem) {
     return this.httpClient.post(`${this.baseURL}/advertisementBoard`, model)
       .pipe(

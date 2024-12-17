@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { MainAdvertismentComponent } from './components/main-advertisment/main-advertisment.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdvertismentListComponent } from './components/advertisment-list/advertisment-list.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MaterialModule } from './modules/material.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { AdvertismentListComponent } from './components/advertisment-list/advert
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule      
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,6 +6,7 @@
 
             <form [formGroup]="form">
                 <div class="search-items">
+
                     <div class="iconSearch">
                         <img src='assets/images/search.gif' />
                     </div>
@@ -13,9 +14,25 @@
                         <input type="text" id="placeName" formControlName="placeName"
                             placeholder="TYPE PLACE OR PLACE NEARBY IN ANY LANGUAGE (Street,City,State)" class="txtbox">
                     </div>
-                    <div>
-                        <input type="button" value="Go" class="searchButton searchButtonText pointer" (click)="searchByPlace()">
+
+                    <div class="dropDown">
+                        <mat-form-field appearance="outline" class="selectBox">
+                            <!-- <mat-label>Properties</mat-label> -->
+                            <mat-select [disableOptionCentering]="true" panelClass="panelClass" class="mySelectClass" type="string" 
+                                (selectionChange)="onSelectionChange($event)"
+                                 formControlName="prop" id="prop">
+                                <mat-option *ngFor="let adProperty of adProperties" [value]="adProperty.value">
+                                    {{adProperty.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>                                      
                     </div>
+
+                    <div>
+                        <input type="button" value="Go" class="searchButton searchButtonText pointer"
+                            (click)="searchByPlaceAndProp()">
+                    </div>
+
                 </div>
             </form>
 

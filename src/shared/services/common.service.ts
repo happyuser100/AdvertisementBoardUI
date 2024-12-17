@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { throwError } from 'rxjs';
 
@@ -10,7 +11,7 @@ export class CommonService {
 
   errorMessages: any;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private snackBar: MatSnackBar) {
   }
 
   handleError = (error: any) => {
@@ -32,9 +33,8 @@ export class CommonService {
   }
 
   displayMessage(message: string) {
-    // this.snackBar.open(message, "", {
-    //   duration: 5000,
-    // });
+    this.snackBar.open(message, "", {
+      duration: 5000,
+    });
   }
-
 }

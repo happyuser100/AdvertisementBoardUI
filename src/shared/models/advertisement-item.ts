@@ -7,7 +7,8 @@ export interface AdvertisementItem {
     description: string;
     iconUrl: string;
     personName: string;
-    postDate: string;
+    postDate: Date;
+    isCommentsNumber: boolean;
     commentsNumber: number;
     isWriteComments: boolean;
 }

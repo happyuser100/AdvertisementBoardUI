@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AdvertisementItem } from 'src/shared/models/advertisement-item';
 import { AdvertisementBoardService } from 'src/shared/services/advertisement-board.service';
 import { CommonService } from 'src/shared/services/common.service';
@@ -10,10 +11,20 @@ import { CommonService } from 'src/shared/services/common.service';
 })
 export class MainAdvertismentComponent {
 
+  form: FormGroup = new FormGroup({});
   items: AdvertisementItem[] = [];
 
-  constructor(private advertisementBoardService: AdvertisementBoardService,
+  get placeNameCtrl() {
+    return this.form.get('placeName');
+  }
+
+  constructor(
+    private fb: FormBuilder,
+    private advertisementBoardService: AdvertisementBoardService,
     private commonService: CommonService) {
+    this.form = fb.group({
+      placeName: ['', [Validators.required]],
+    })
   }
 
   ngOnInit(): void {
@@ -35,4 +46,15 @@ export class MainAdvertismentComponent {
     });
   }
 
+  searchByPlace() {
+    let placeName = this.form.get("placeName")?.value;
+    this.advertisementBoardService.getByPlace(placeName).subscribe({
+      next: (response) => {
+        this.items = response;
+      },
+      error: (error) => {
+        this.commonService.displayMessage('There was an error in retrieving data from the server');
+      }
+    });
+  }
 }

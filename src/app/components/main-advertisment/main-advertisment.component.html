@@ -1,36 +1,57 @@
 <div class="container-fluid">
-    <!-- <img class="bg" src="assets/images/header.PNG"> -->
     <div class="bgr"></div>
 
-    <div style="text-align: center">
-        <div class="flex-items">
-            <div *ngFor="let item of items">
-                <div class="flex-item">
-                    <hr class="timelineRed" />
-                    <div class="container">
-                        <div class="containerItem">{{ item.adProperty }}</div>
-                        <div class="containerItem">around {{ item.place }}</div>
-                    </div> 
+    <div class="outer">
+        <div class="inner">
 
-                    <h3 class="row text-center">{{ item.title }}</h3>
-                    <img  *ngIf="item.imageURL" class="img" src='assets/images/{{item.imageURL}}' />
-
-                    <div class="descriptionItem">
-                        {{ item.description }}
+            <form [formGroup]="form">
+                <div class="search-items">
+                    <div class="iconSearch">
+                        <img src='assets/images/search.gif' />
                     </div>
+                    <div>
+                        <input type="text" id="placeName" formControlName="placeName"
+                            placeholder="TYPE PLACE OR PLACE NEARBY IN ANY LANGUAGE (Street,City,State)" class="txtbox">
+                    </div>
+                    <div>
+                        <input type="button" value="Go" class="searchButton searchButtonText pointer" (click)="searchByPlace()">
+                    </div>
+                </div>
+            </form>
 
-                    <div class="lowContainer">
-                        <div *ngIf="item.iconUrl" class="iconLow">
-                            <img src='assets/images/{{item.iconUrl}}' />
+            <div class="flex-items">
+                <div *ngFor="let item of items;let i = index">
+                    <div class="flex-item">
+                        <hr [ngClass]="{'timelineRed': 0 === i % 2, 'timelineBlue': 0 !== i % 2}" />
+                        <div class="container">
+                            <div class="containerItem">{{ item.adProperty }}</div>
+                            <div class="containerItem">around {{ item.place }}</div>
                         </div>
-                        <div>
-                            <div *ngIf="item.personName">{{item.personName}}</div>
-                            <div>{{item.postDate | date: 'dd/MM/yyyy HH:mm'}}</div>
-                            <div>Link {{item.commentsNumber}} comments</div>
+
+                        <h3 class="row text-center">{{ item.title }}</h3>
+                        <img *ngIf="item.imageURL" class="img" src='assets/images/{{item.imageURL}}' />
+
+                        <div class="descriptionItem">
+                            {{ item.description }}
+                        </div>
+
+                        <div class="lowContainer">
+                            <div *ngIf="item.iconUrl" class="iconLow">
+                                <img src='assets/images/{{item.iconUrl}}' />
+                            </div>
+                            <div *ngIf="item.personName">
+                                <div>{{item.personName}}</div>
+                                <div>{{item.postDate | date: 'dd/MM/yyyy HH:mm'}}</div>
+                                <div>Link {{item.commentsNumber}} comments</div>
+                            </div>
+                        </div>
+                        <div *ngIf="item.isWriteComments" class="writeComments">
+                            <input type="text" placeholder="Write a comment">
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>

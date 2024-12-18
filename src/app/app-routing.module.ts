@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainAdvertismentComponent } from './components/main-advertisment/main-advertisment.component';
-import { AdvertismentListComponent } from './components/advertisment-list/advertisment-list.component';
+import { LayoutComponent } from './components/advertisment-operations/layout/layout.component';
 
 const routes: Routes = [
   {path: '', component: MainAdvertismentComponent},
-  {path: 'list', component: AdvertismentListComponent},  
+  {path: 'list', loadChildren: () => import('./components/advertisment-operations/advertisment-operations.module').then(m => m.AdvertismentOperationsModule),},  
 ];
 
 @NgModule({

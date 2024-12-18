@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AdvertisementItem } from 'src/shared/models/advertisement-item';
 import { AdvertisementBoardService } from 'src/shared/services/advertisement-board.service';
@@ -14,7 +14,7 @@ interface AdProperty {
   templateUrl: './main-advertisment.component.html',
   styleUrls: ['./main-advertisment.component.css']
 })
-export class MainAdvertismentComponent {
+export class MainAdvertismentComponent implements OnInit {
 
   form: FormGroup = new FormGroup({});
   items: AdvertisementItem[] = [];

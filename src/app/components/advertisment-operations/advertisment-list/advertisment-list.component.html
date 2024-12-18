@@ -1,0 +1,60 @@
+<div class="container-fluid">
+    <div class="addButton">
+        <a routerLink="add" class="btn btn-sm btn-success mb-2">Add Advertisement</a>
+    </div>
+
+    <div class="tableWidth tablePaddingTop">
+        <mat-table [dataSource]="dataSource" class=" grayHeaderTable">
+
+            <ng-container matColumnDef="id">
+                <mat-header-cell [hidden]="true" *matHeaderCellDef>
+                    id
+                </mat-header-cell>
+                <mat-cell [hidden]="true" *matCellDef="let element">
+                    {{element.id}}
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="place">
+
+                <mat-header-cell class=" headerTableItemPadding0 color_blue" [ngClass]="'w-200 wordWrap'"
+                    *matHeaderCellDef>
+                    Place
+                </mat-header-cell>
+
+                <mat-cell class="tableItem" *matCellDef="let element">
+                    {{element.place}}
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="adProperty">
+
+                <mat-header-cell class="headerTableItemPadding0 color_blue" [ngClass]="'w-200 wordWrap'"
+                    *matHeaderCellDef>
+                    Property
+                </mat-header-cell>
+
+                <mat-cell class="tableItem" *matCellDef="let element">
+                    {{element.adProperty}}
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="delete">
+                <mat-header-cell class="headerTableItemPadding0" [ngClass]="'w-100 wordWrap'" *matHeaderCellDef>
+                    Delete
+                </mat-header-cell>
+
+                <mat-cell class="tableItem" [ngClass]="'w-100 wordWrap pointer'" *matCellDef="let element"
+                    (click)="deleteClick(element.id)">
+                    <mat-icon class="material-icons color_green">delete</mat-icon>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns">
+            </mat-row>
+
+        </mat-table>
+    </div>
+
+</div>

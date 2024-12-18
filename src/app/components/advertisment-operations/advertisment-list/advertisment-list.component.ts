@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { AdvertisementBoardService } from 'src/shared/services/advertisement-board.service';
 import { AdvertisementItem } from 'src/shared/models/advertisement-item';
@@ -19,7 +19,9 @@ export class AdvertismentListComponent implements OnInit{
   dataSource = new MatTableDataSource<AdvertisementItem>();
 
   constructor(
-    private router: Router, private commonService: CommonService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private commonService: CommonService,
     private advertisementBoardService: AdvertisementBoardService,
     private dialog: MatDialog) {
   }
@@ -52,8 +54,8 @@ export class AdvertismentListComponent implements OnInit{
     });
   }
 
-  updateClick(id: string)
-  {
-    this.router.navigate(['edit', id]);
-  }
+  // updateClick(id: string)
+  // {
+  //   this.router.navigate(['/edit', id]), { relativeTo: this.route };
+  // }
 }

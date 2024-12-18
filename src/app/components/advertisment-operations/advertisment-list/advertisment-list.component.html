@@ -39,18 +39,17 @@
                 </mat-cell>
             </ng-container>
 
-            
             <ng-container matColumnDef="edit">
                 <mat-header-cell class="headerTableItemPadding0" [ngClass]="'w-100 wordWrap'" *matHeaderCellDef>
                     Edit
                 </mat-header-cell>
 
-                <mat-cell class="tableItem" [ngClass]="'w-100 wordWrap pointer'" *matCellDef="let element"
-                    (click)="updateClick(element.id)">
-                    <mat-icon class="material-icons color_green">edit</mat-icon>
+                <!-- (click)="updateClick(element.id)" -->
+                <mat-cell class="tableItem" [ngClass]="'w-100 wordWrap pointer'" *matCellDef="let element">
+                    <a routerLink="edit/{{element.id}}" class="btn btn-sm btn-primary mr-1"><mat-icon
+                            class="material-icons color_green">edit</mat-icon></a>
                 </mat-cell>
             </ng-container>
-
 
             <ng-container matColumnDef="delete">
                 <mat-header-cell class="headerTableItemPadding0" [ngClass]="'w-100 wordWrap'" *matHeaderCellDef>

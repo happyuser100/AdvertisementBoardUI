@@ -34,6 +34,14 @@ export class AdvertisementBoardService {
       );
   }
 
+  getById(id: string)
+  {
+    return this.httpClient.get<AdvertisementItem>(`${this.baseURL}/advertisementBoard/getById/${id}`)
+      .pipe(
+        catchError(this.commonService.handleError)
+      );
+  }
+
   create(model: AdvertisementItem) {
     return this.httpClient.post(`${this.baseURL}/advertisementBoard`, model)
       .pipe(

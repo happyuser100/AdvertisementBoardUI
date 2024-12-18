@@ -13,7 +13,7 @@ import { CommonService } from 'src/shared/services/common.service';
 })
 export class AdvertismentListComponent implements OnInit{
 
-  displayedColumns: string[] = ['id', 'place', 'adProperty','delete'];  
+  displayedColumns: string[] = ['id', 'place', 'adProperty','edit','delete'];  
   data: AdvertisementItem[] = [];
 
   dataSource = new MatTableDataSource<AdvertisementItem>();
@@ -50,5 +50,10 @@ export class AdvertismentListComponent implements OnInit{
         this.commonService.displayMessage('There was an error in retrieving data from the server');
       }
     });
+  }
+
+  updateClick(id: string)
+  {
+    this.router.navigate(['edit', id]);
   }
 }

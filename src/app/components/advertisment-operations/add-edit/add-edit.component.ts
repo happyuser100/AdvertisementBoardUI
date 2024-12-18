@@ -30,16 +30,17 @@ export class AddEditComponent implements OnInit {
     this.isAddMode = !this.id;
 
     this.form = this.formBuilder.group({
+      id: ['', []],
       place: ['', Validators.required],
       adProperty: ['', Validators.required],
       title: ['', Validators.required],
-      imageURL: ['', [Validators.required]],
+      imageURL: ['', []],
       description: ['', Validators.required],
-      iconUrl: ['', Validators.required],
-      personName: ['', Validators.required],
-      isCommentsNumber: ['', Validators.required],
-      commentsNumber: ['', Validators.required],
-      isWriteComments: ['', Validators.required],
+      iconUrl: ['',],
+      personName: ['', []],
+      isCommentsNumber: [false, Validators.required],
+      commentsNumber: ['', []],
+      isWriteComments: [false, Validators.required],
     });
 
     if (!this.isAddMode) {
@@ -62,13 +63,13 @@ export class AddEditComponent implements OnInit {
 
     this.loading = true;
     if (this.isAddMode) {
-      this.createUser();
+      this.createAdvertisement();
     } else {
-      this.updateUser();
+      this.updateAdvertisement();
     }
   }
 
-  private createUser() {
+  private createAdvertisement() {
     this.advertisementBoardService.create(this.form.value)
       .pipe(first())
       .subscribe(() => {
@@ -78,7 +79,7 @@ export class AddEditComponent implements OnInit {
       .add(() => this.loading = false);
   }
 
-  private updateUser() {
+  private updateAdvertisement() {
     this.advertisementBoardService.update(this.id, this.form.value)
       .pipe(first())
       .subscribe(() => {

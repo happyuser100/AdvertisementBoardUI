@@ -1,0 +1,9 @@
+.radioBox{
+    display: flex;
+    flex-direction: row;
+}
+
+.radioPadding
+{
+    padding-left: 10px;
+}
